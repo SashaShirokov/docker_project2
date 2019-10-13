@@ -4,10 +4,16 @@
     <title>Threading</title>
 </head>
 <body>
-    <h2>You have just downloaded the high resolution images from <a href="https://www.imgix.com/" target="_blank">{{ result.source }}</a> using threading...</h2>
-    <p>Number of downloaded images: {{ result.number_of_images }}</p>
-    <p>Time it took to download: {{ result.time_to_download }}</p>
-    <img src="../static/photo-1516117172878-fd2c41f4a759.jpg" alt="Python comic">
-    <img src="../static/photo-1532009324734-20a7a5813719.jpg" alt="Python comic">
+    <h1 style="text-align:center">Threading...</h1>
+    <h2>You have just downloaded(i/o bound) and resized(cpu bound) the high resolution images from <a href="https://www.imgix.com/" target="_blank">{{ result.source }}</a> using threading...</h2>
+    <p>Number of downloaded images: <b>{{ result.number_of_images }}</b></p>
+    <p>Time it took to download: <b>{{ result.time_to_download }}</b> second(s)</p>
+    <p>Time it took to resize: <b>{{ result.time_to_resize }}</b> second(s)</p>
+    {% for image in result.images %}
+        <img src="../static/processed/{{ image }}" alt="Python comic">
+    {% endfor %}
+    {% for image in result.images %}
+        <img src="../static/{{ image }}" alt="Python comic">
+    {% endfor %}
 </body>
 </html>
