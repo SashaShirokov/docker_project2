@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  threading:
+    build: ./thread
+    volumes:
+      - ./thread:/usr/src/app
+    ports:
+      - 1010:1000
+  #
+  # result:
+  #     build: ./result
+  #     volumes:
+  #       - ./result:/usr/src/app
+  #     ports:
+  #       - 1020:1000
+  #     depends_on:
+  #       - threading
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: '3'
+#
+# services:
+#   result:
+#     build: ./result
+#     volumes:
+#       - ./result:/usr/src/app
+#     ports:
+#       - 1020:1010
