@@ -4,4 +4,5 @@ So the project is going to consist of three parts:
 - thread
 - process
 - result
+
 I'm going to add one part at a time. The init commit will be together with the first part thread.
