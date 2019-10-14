@@ -6,3 +6,4 @@ So the project is going to consist of three parts:
 - result
 
 I'm going to add one part at a time. The init commit will be together with the first part thread.
+Just added the second part Process. Start working on result, where I plan to use matplotlib to make a histogram chart out of the results.
