@@ -7,7 +7,13 @@ services:
       - ./thread:/usr/src/app
     ports:
       - 1010:1000
-  #
+  processing:
+    build: ./process
+    volumes:
+      - ./process:/usr/src/app
+    ports:
+      - 3010:3000
+
   # result:
   #     build: ./result
   #     volumes:
@@ -16,27 +22,3 @@ services:
   #       - 1020:1000
   #     depends_on:
   #       - threading
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# version: '3'
-#
-# services:
-#   result:
-#     build: ./result
-#     volumes:
-#       - ./result:/usr/src/app
-#     ports:
-#       - 1020:1010

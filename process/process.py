@@ -38,9 +38,9 @@ def download_img(img_url):
     img_bytes = requests.get(img_url).content
     img_name = img_url.split('/')[3]
     img_name = f'{img_name}.jpg'
-    images.append(img_name)
     with open(img_name, 'wb') as img_file:
         img_file.write(img_bytes)
+        images.append(img_name)
 
 
 images = []
@@ -48,8 +48,15 @@ static = 'static'
 start = time.perf_counter()
 
 with change_dir(static):
-    with concurrent.futures.ThreadPoolExecutor() as executor:
+    with concurrent.futures.ProcessPoolExecutor() as executor:
         executor.map(download_img, img_urls)
+     # for some reason I'm not able to append all names to the images list in the download_img function as with Thread
+     # so I do it here
+    for name in os.listdir():
+        img_name = name[-3:]
+        if img_name == 'jpg':
+            images.append(name)
+
 
 finish = time.perf_counter()
 
@@ -68,7 +75,8 @@ def process_image(img_name):
 size = (300, 300)
 start2 = time.perf_counter()
 
-with concurrent.futures.ThreadPoolExecutor() as executor:
+
+with concurrent.futures.ProcessPoolExecutor() as executor:
     executor.map(process_image, images)
 
 
@@ -96,4 +104,4 @@ def show_time():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=1000, debug=True)
+    app.run(host='0.0.0.0', port=3000, debug=True)

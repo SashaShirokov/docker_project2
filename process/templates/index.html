@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Threading</title>
+</head>
+<body>
+    <h1 style="text-align:center">MultiProcessing...</h1>
+    <h2>You have just downloaded(i/o bound) and resized(cpu bound) the high resolution images from <a href="https://www.imgix.com/" target="_blank">{{ result.source }}</a> using multiprocessing...</h2>
+    <p>Number of downloaded images: <b>{{ result.number_of_images }}</b></p>
+    <p>Time it took to download: <b>{{ result.time_to_download }}</b> second(s)</p>
+    <p>Time it took to resize: <b>{{ result.time_to_resize }}</b> second(s)</p>
+    {% for image in result.images %}
+        <img src="../static/processed/{{ image }}" alt="Python comic">
+    {% endfor %}
+    {% for image in result.images %}
+        <img src="../static/{{ image }}" alt="Python comic">
+    {% endfor %}
+</body>
+</html>
