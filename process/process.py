@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask_restful import Resource, Api
 
 from contextlib import contextmanager
 import concurrent.futures
@@ -10,6 +11,7 @@ from PIL import Image, ImageFilter
 
 
 app = Flask(__name__)
+api = Api(app)
 
 
 @contextmanager
@@ -93,14 +95,19 @@ result = {
 }
 
 
+class Results(Resource):
+    def get(self):
+        return {
+            'results': [result]
+        }
+
+
+api.add_resource(Results, '/data')
+
+
 @app.route('/')
 def show_index():
     return render_template("index.html", result=result)
-
-
-@app.route('/data')
-def show_time():
-    return result
 
 
 if __name__ == '__main__':
