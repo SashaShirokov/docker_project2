@@ -11,9 +11,10 @@ r_m = requests.get('http://0.0.0.0:3010/data')
 result_t = json.loads(r_t.content)
 result_m = json.loads(r_m.content)
 
-# plt.style.use('fivethirtyeight')
+plt.style.use('fivethirtyeight')
+
 # comic style...
-plt.xkcd()
+# plt.xkcd()
 
 type = ['threading', 'multiprocessing']
 
@@ -36,5 +37,7 @@ plt.ylabel('Time(seconds)')
 plt.title('Threading vs MultiProcessing')
 
 plt.legend()
+
+plt.tight_layout()
 
 plt.show()

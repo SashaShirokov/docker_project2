@@ -26,7 +26,6 @@ def change_dir(dest):
         os.chdir(cwd)
 
 
-# Just a few images so far, but then we will increase the number up to 10 or 15
 img_urls = [
     'https://images.unsplash.com/photo-1530224264768-7ff8c1789d79',
     'https://images.unsplash.com/photo-1564135624576-c5c88640f235',
