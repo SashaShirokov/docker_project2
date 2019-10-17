@@ -14,7 +14,6 @@
         <div class="container">
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Home</a>
               <a class="nav-item nav-link" href="/data">Json data</a>
             </div>
           </div>
@@ -31,7 +30,7 @@
                       <h1 style="text-align:center">Threading...</h1>
                     </div>
                     <div class="article-metadata">
-                      <h3>You have just downloaded (i/o bound) and resized (cpu bound) the high resolution images from <a href="https://www.imgix.com/" target="_blank">{{ result.source }}</a> using threading...</h3>
+                      <p>You have just downloaded (i/o bound) and resized (cpu bound) the high resolution images from <a href="https://www.imgix.com/" target="_blank">{{ result.source }}</a> using threading...</p>
                     </div>
 
                     <p>Number of downloaded images: <b>{{ result.number_of_images }}</b></p>
@@ -44,7 +43,7 @@
           <div class="content-section">
             <h3>What is Threading?</h3>
             <p class='text-muted'>
-              In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system.[1] The implementation of threads and processes differs between operating systems, but in most cases a thread is a component of a process. Multiple threads can exist within one process, executing concurrently and sharing resources such as memory, while different processes do not share these resources. In particular, the threads of a process share its executable code and the values of its dynamically allocated variables and non-thread-local global variables at any given time.
+              In computer science, a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. The implementation of threads and processes differs between operating systems, but in most cases a thread is a component of a process. Multiple threads can exist within one process, executing concurrently and sharing resources such as memory, while different processes do not share these resources. In particular, the threads of a process share its executable code and the values of its dynamically allocated variables and non-thread-local global variables at any given time.
             </p>
           </div>
         </div>
@@ -53,11 +52,15 @@
 
 
 
-    <div class="container">
+    <div class="container content-section">
+        <div class="article-metadata">
+          <h4>Resized images</h4>
+        </div>
         {% for image in result.images %}
             <img src="../static/processed/{{ image }}" alt="Python comic" class="img-thumbnail">
         {% endfor %}
     </div>
+
 
     {% for image in result.images %}
         <img src="../static/{{ image }}" alt="Python comic">

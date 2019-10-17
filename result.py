@@ -33,7 +33,7 @@ plt.xticks(ticks=x_indexes, labels=type)
 
 plt.xlabel('downloading and resizing ' +
            str(result_m['results'][0]['number_of_images']) + ' image(s)...')
-plt.ylabel('Time(seconds)')
+plt.ylabel('Time (seconds)')
 plt.title('Threading vs MultiProcessing')
 
 plt.legend()

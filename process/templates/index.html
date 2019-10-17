@@ -14,7 +14,7 @@
         <div class="container">
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Home</a>
+              <!-- <a class="nav-item nav-link" href="/">Home</a> -->
               <a class="nav-item nav-link" href="/data">Json data</a>
             </div>
           </div>
@@ -31,7 +31,7 @@
                       <h1 style="text-align:center">MultiProcessing...</h1>
                     </div>
                     <div class="article-metadata">
-                      <h3>You have just downloaded (i/o bound) and resized (cpu bound) the high resolution images from <a href="https://www.imgix.com/" target="_blank">{{ result.source }}</a> using multiprocessing...</h3>
+                      <p>You have just downloaded (i/o bound) and resized (cpu bound) the high resolution images from <a href="https://www.imgix.com/" target="_blank">{{ result.source }}</a> using multiprocessing...</p>
                     </div>
 
                     <p>Number of downloaded images: <b>{{ result.number_of_images }}</b></p>
@@ -44,7 +44,7 @@
           <div class="content-section">
             <h3>What is MultiProcessing?</h3>
             <p class='text-muted'>
-              Multiprocessing is the use of two or more central processing units (CPUs) within a single computer system.[1][2] The term also refers to the ability of a system to support more than one processor or the ability to allocate tasks between them. There are many variations on this basic theme, and the definition of multiprocessing can vary with context, mostly as a function of how CPUs are defined (multiple cores on one die, multiple dies in one package, multiple packages in one system unit, etc.).
+              Multiprocessing is the use of two or more central processing units (CPUs) within a single computer system. The term also refers to the ability of a system to support more than one processor or the ability to allocate tasks between them. There are many variations on this basic theme, and the definition of multiprocessing can vary with context, mostly as a function of how CPUs are defined (multiple cores on one die, multiple dies in one package, multiple packages in one system unit, etc.).
             </p>
           </div>
         </div>
@@ -53,7 +53,10 @@
 
 
 
-    <div class="container">
+    <div class="container content-section">
+        <div class="article-metadata">
+          <h4>Resized images</h4>
+        </div>
         {% for image in result.images %}
             <img src="../static/processed/{{ image }}" alt="Python comic" class="img-thumbnail">
         {% endfor %}
